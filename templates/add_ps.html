@@ -1,0 +1,82 @@
+<!-- add_ps.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah PS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c; /* Hitam */
+            color: #ffffff; /* Putih */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff4c4c; /* Merah */
+            margin-top: 20px;
+        }
+
+        form {
+            background-color: #2c2c2c; /* Hitam lebih terang */
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            width: 50%;
+            box-shadow: 0 0 10px #000;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #ff4c4c; /* Merah */
+        }
+
+        input[type="text"], input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #1c1c1c;
+            color: #ffffff;
+        }
+
+        button {
+            background-color: #ff4c4c; /* Merah */
+            color: #ffffff; /* Putih */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #d43c3c; /* Merah lebih gelap */
+        }
+    </style>
+</head>
+<body>
+    <h1>Tambah PS Baru</h1>
+    <form action="{{ url_for('add_ps') }}" method="POST">
+        <label for="kode_ps">Kode PS:</label><br>
+        <input type="text" id="kode_ps" name="kode_ps" required><br><br>
+        
+        <label for="nama">Nama PS:</label><br>
+        <input type="text" id="nama" name="nama" required><br><br>
+        
+        <label for="stok">Stok:</label><br>
+        <input type="number" id="stok" name="stok" required><br><br>
+        
+        <label for="harga_sewa">Harga Sewa:</label><br>
+        <input type="number" id="harga_sewa" name="harga_sewa" required><br><br>
+        
+        <button type="submit">Simpan</button>
+    </form>
+</body>
+</html>

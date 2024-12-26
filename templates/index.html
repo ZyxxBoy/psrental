@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <header>
+        <div class="nav container">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <a href="#" class="logo">TriBhinneka <span> PS </span></a>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a href="{{ url_for('ps') }}">PS</a></li>
+                    <li class="nav-item"><a href="{{ url_for('pemesanan') }}">Rental</a></li>
+                    <li class="nav-item"><a href="{{ url_for('index') }}" class="active">Recommend</a></li>
+                    <li class="nav-item"><a href="{{ url_for('about') }}">About</a></li>
+                </ul>
+            </nav>
+            <a href="{{ url_for('logout') }}" class="btn login-btn">Logout</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>PS Recommendation System</h1>
+        <form method="POST" class="form">
+            <label for="budget">Budget (in IDR):</label>
+            <input type="number" name="budget" id="budget" value="{{ budget }}" required>
+
+            <label for="game_type">Tipe Game:</label>
+            <select name="game_type" id="game_type" required>
+                <option value="action" {% if game_type == "action" %}selected{% endif %}>Action</option>
+                <option value="adventure" {% if game_type == "adventure" %}selected{% endif %}>Adventure</option>
+                <option value="multiplayer" {% if game_type == "multiplayer" %}selected{% endif %}>Multiplayer</option>
+            </select>
+
+            <label for="genre">Genre Game:</label>
+            <select name="genre" id="genre" required>
+                <option value="RPG" {% if genre == "RPG" %}selected{% endif %}>RPG</option>
+                <option value="Racing" {% if genre == "Racing" %}selected{% endif %}>Racing</option>
+                <option value="Sports" {% if genre == "Sports" %}selected{% endif %}>Sports</option>
+            </select>
+
+            <label for="graphics">Prefer Grafik:</label>
+            <select name="graphics" id="graphics" required>
+                <option value="low" {% if graphics == "low" %}selected{% endif %}>Low</option>
+                <option value="medium" {% if graphics == "medium" %}selected{% endif %}>Medium</option>
+                <option value="high" {% if graphics == "high" %}selected{% endif %}>High</option>
+            </select>
+
+            <button type="submit">Get Recommendation</button>
+        </form>
+
+        {% if recommendations %}
+        <h2>Rekomendasi PS untuk Anda:</h2>
+        <ul>
+            {% for recommendation in recommendations %}
+            <li>{{ recommendation }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

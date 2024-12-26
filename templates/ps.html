@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produk - Rental PS</title>
+      
+    <!-- Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ps.css') }}">
+</head>
+<body>
+    <body>
+        <header>
+            <div class="nav container">
+                <i class='bx bx-menu' id="menu-icon"></i>
+                <a href="#" class="logo">TriBhinneka <span> PS </span></a>
+                <nav>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="{{ url_for('home') }}">Home</a></li>
+                        <li class="nav-item"><a href="{{ url_for('ps') }}"class="active">PS</a></li>
+                        <li class="nav-item"><a href="{{ url_for('pemesanan') }}">Rental</a></li>
+                        <li class="nav-item"><a href="{{ url_for('index') }}">Recommend</a></li>
+                        <li class="nav-item"><a href="{{ url_for('about') }}">About</a></li>
+                    </ul>
+                </nav>
+                <a href="{{ url_for('logout') }}" class="btn login-btn">Logout</a>
+            </div>
+        </header>
+    
+        <!-- Pastikan ada padding-top pada body -->
+        <section class="product-detail py-5">
+            <div class="container">
+                <!-- Konten produk -->
+            </div>
+        </section>
+    </body>
+    
+    <!-- Detail Produk Section -->
+    <section class="product-detail py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Product Image for PS5 -->
+                <div class="col-md-6 mb-4">
+                    <div class="product-image">
+                        <img src="/static/images/ps5.png" class="img-fluid rounded shadow-lg" alt="PS5">
+                    </div>
+                </div>
+                <!-- Product Details for PS5 -->
+                <div class="col-md-6">
+                    <h2 class="mb-3">PlayStation 5 (PS5)</h2>
+                    <p class="text-muted">Konsol Gaming Terbaru dari Sony</p>
+                    <p class="lead">Nikmati pengalaman bermain game dengan grafis 4K, kecepatan pemrosesan super cepat, dan koleksi game eksklusif terbaik di PlayStation 5. Rental PS5 kami memberikan pengalaman gaming terbaik di rumah Anda!</p>
+                    
+                    <div class="description-box">
+                        <h5 class="mt-4">Deskripsi:</h5>
+                        <ul>
+                            <li>Resolusi 4K dengan HDR</li>
+                            <li>Pengalaman Game yang Super Cepat</li>
+                            <li>Game Eksklusif PS5</li>
+                            <li>Dukungan DualSense Wireless Controller</li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-box">
+                        <h5 class="mt-4">Spesifikasi:</h5>
+                        <ul>
+                            <li>CPU: AMD Ryzen Zen 2 Octa-Core</li>
+                            <li>GPU: AMD Radeon RDNA 2</li>
+                            <li>Memori: 16GB GDDR6</li>
+                            <li>Storage: 825GB SSD</li>
+                            <li>Port: USB, HDMI, Ethernet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <!-- Product Image for PS2 -->
+                <div class="col-md-6 mb-4">
+                    <div class="product-image">
+                        <img src="/static/images/ps2.png" class="img-fluid rounded shadow-lg" alt="PS2">
+                    </div>
+                </div>
+                <!-- Product Details for PS2 -->
+                <div class="col-md-6">
+                    <h2 class="mb-3">PlayStation 2 (PS2)</h2>
+                    <p class="text-muted">Konsol Legendaris dengan Koleksi Game Klasik</p>
+                    <p class="lead">Nikmati kembali game-game klasik PlayStation 2 dengan kualitas grafis yang memukau. Rental PS2 kami menawarkan nostalgia dan hiburan tanpa batas!</p>
+                    
+                    <div class="description-box">
+                        <h5 class="mt-4">Deskripsi:</h5>
+                        <ul>
+                            <li>Koleksi Game Klasik</li>
+                            <li>Kompatibilitas dengan PS1 Games</li>
+                            <li>Memori 128MB</li>
+                            <li>Dukungan DualShock 2 Controller</li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-box">
+                        <h5 class="mt-4">Spesifikasi:</h5>
+                        <ul>
+                            <li>CPU: 128-bit Emotion Engine</li>
+                            <li>GPU: Graphics Synthesizer</li>
+                            <li>Memori: 32MB RAM</li>
+                            <li>Storage: 8MB Memory Card</li>
+                            <li>Port: USB, AV Multi Out</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <!-- Product Image for PS3 -->
+                <div class="col-md-6 mb-4">
+                    <div class="product-image">
+                        <img src="/static/images/ps3.png" class="img-fluid rounded shadow-lg" alt="PS3">
+                    </div>
+                </div>
+                <!-- Product Details for PS3 -->
+                <div class="col-md-6">
+                    <h2 class="mb-3">PlayStation 3 (PS3)</h2>
+                    <p class="text-muted">Konsol dengan Game Eksklusif dan Blu-ray Player</p>
+                    <p class="lead">PS3 membawa Anda ke pengalaman bermain game yang lebih dalam dengan dukungan game eksklusif dan kemampuan pemutaran Blu-ray. Rental PS3 kami menawarkan game-game menarik untuk hiburan di rumah.</p>
+                    
+                    <div class="description-box">
+                        <h5 class="mt-4">Deskripsi:</h5>
+                        <ul>
+                            <li>Game Eksklusif PS3</li>
+                            <li>Pemutaran Blu-ray</li>
+                            <li>Dukungan HD</li>
+                            <li>DualShock 3 Wireless Controller</li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-box">
+                        <h5 class="mt-4">Spesifikasi:</h5>
+                        <ul>
+                            <li>CPU: Cell Broadband Engine</li>
+                            <li>GPU: RSX 'Reality Synthesizer'</li>
+                            <li>Memori: 256MB XDR DRAM</li>
+                            <li>Storage: 40GB / 80GB / 160GB</li>
+                            <li>Port: HDMI, USB, Ethernet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <!-- Existing Products (PS5, PS2, PS3) -->
+            <div class="row mt-5">
+                <!-- Product Image for PS4 -->
+                <div class="col-md-6 mb-4">
+                    <div class="product-image">
+                        <img src="/static/images/ps4.png" class="img-fluid rounded shadow-lg" alt="PS4">
+                    </div>
+                </div>
+                <!-- Product Details for PS4 -->
+                <div class="col-md-6">
+                    <h2 class="mb-3">PlayStation 4 (PS4)</h2>
+                    <p class="text-muted">Konsol Gaming Terbaik dengan Koleksi Game Premium</p>
+                    <p class="lead">PlayStation 4 menghadirkan pengalaman bermain game dengan grafis HD yang luar biasa dan kontroler yang canggih. Rental PS4 kami memungkinkan Anda menikmati koleksi game yang tak tertandingi.</p>
+                    
+                    <div class="description-box">
+                        <h5 class="mt-4">Deskripsi:</h5>
+                        <ul>
+                            <li>Grafis HD</li>
+                            <li>Game Eksklusif PS4</li>
+                            <li>Dukungan DualShock 4 Wireless Controller</li>
+                            <li>Fitur Multiplayer Online</li>
+                        </ul>
+                    </div>
+
+                    <div class="spec-box">
+                        <h5 class="mt-4">Spesifikasi:</h5>
+                        <ul>
+                            <li>CPU: AMD Jaguar Octa-Core</li>
+                            <li>GPU: AMD Radeon Graphics</li>
+                            <li>Memori: 8GB GDDR5</li>
+                            <li>Storage: 500GB / 1TB HDD</li>
+                            <li>Port: USB, HDMI, Ethernet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Bootstrap JS and Icons -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+
+</body>
+</html>

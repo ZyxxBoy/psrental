@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - TriBhinneka PS</title>
+    
+    <!-- Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+</head>
+<body>
+    <header>
+        <div class="nav container">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <a href="#" class="logo">TriBhinneka <span> PS </span></a>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a href="{{ url_for('ps') }}">PS</a></li>
+                    <li class="nav-item"><a href="{{ url_for('pemesanan') }}">Rental</a></li>
+                    <li class="nav-item"><a href="{{ url_for('index') }}">Recommend</a></li>
+                    <li class="nav-item"><a href="{{ url_for('about') }}"class="active">About</a></li>
+                </ul>
+            </nav>
+            <a href="{{ url_for('logout') }}" class="btn login-btn">Logout</a>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="about" class="about py-5">
+        <div class="container">
+            <h2 class="mb-4 text-center" style="color: var(--main-color);">About Us</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <h3>Our Team</h3>
+                    <p class="lead">Kami adalah tim pengembang yang terdiri dari empat individu dengan beragam latar belakang dan keahlian di bidang teknologi, desain, serta pengembangan perangkat lunak. Setiap anggota tim membawa pengalaman unik dan pengetahuan mendalam dalam bidang masing-masing, termasuk pengembangan web, desain antarmuka pengguna, keamanan siber, dan integrasi sistem. Kerja sama kami didorong oleh semangat untuk menciptakan solusi yang memudahkan pengguna dalam menikmati pengalaman gaming yang luar biasa.
+
+                        Tujuan utama kami adalah untuk mengembangkan sebuah platform inovatif yang memungkinkan pengguna untuk menyewa konsol PlayStation dengan cara yang mudah, cepat, dan aman. Kami menyadari bahwa konsol game, seperti PlayStation, bukan hanya sebuah alat hiburan, tetapi juga bagian dari gaya hidup bagi banyak orang. Melalui platform ini, kami ingin menawarkan pengalaman bermain game yang tidak hanya berkualitas tetapi juga fleksibel, dengan berbagai pilihan konsol yang dapat disesuaikan dengan kebutuhan dan preferensi masing-masing pengguna.
+                        
+                        Website kami dirancang dengan antarmuka yang intuitif, memudahkan pengguna untuk menjelajahi berbagai pilihan konsol mulai dari PS5 yang canggih hingga PS2 yang klasik. Kami berkomitmen untuk menyediakan berbagai model dengan spesifikasi yang berbeda, memastikan bahwa setiap orang dapat menemukan konsol yang tepat sesuai dengan anggaran dan preferensinya. Selain itu, kami juga memberikan berbagai pilihan layanan tambahan seperti pengantaran, dukungan teknis, dan kebijakan pengembalian yang jelas untuk menjamin kepuasan pengguna.
+                        
+                        Kami percaya bahwa setiap orang berhak mendapatkan akses ke dunia gaming terbaik tanpa harus memiliki konsol mahal. Dengan menyediakan platform sewa konsol PlayStation yang mudah diakses, kami berharap dapat memberikan pengalaman bermain game yang tak terlupakan bagi semua kalangan, baik pemula maupun gamer berpengalaman. Dengan inovasi yang kami bawa, kami ingin menjadikan platform kami sebagai pilihan utama bagi para penggemar game yang ingin menikmati konsol PlayStation tanpa harus membeli.</p>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <h3>Our Members</h3>
+                    <div class="team-member">
+                        <img src="{{ url_for('static', filename='images/1.jpg') }}" alt="Wullan Nurhartati Minanda" class="team-member-img">
+                        <div class="team-member-info">
+                            <h5>1. Fajri Albar - CEO</h5>
+                            <p>Saya adalah pemimpin tim dan pengambil keputusan utama dalam pengembangan website ini. Dengan latar belakang di manajemen bisnis, saya memiliki visi yang jelas untuk menciptakan sebuah platform yang efisien dan ramah pengguna. Sebagai CEO, saya bertanggung jawab untuk memastikan bahwa setiap keputusan yang diambil oleh tim mencerminkan nilai-nilai yang kami anut.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="{{ url_for('static', filename='images/2.jpg') }}" alt="Assyfa Dwi Milany" class="team-member-img">
+                        <div class="team-member-info">
+                            <h5>2. Muhamad Nauval Hakim - Manusia Biasa</h5>
+                            <p>Saya adalah mahasiswa Teknik Komputer di Universitas Amikom, dengan konsentrasi di bidang Internet of Things (IoT). Saya memiliki minat yang besar dalam pengembangan teknologi IoT yang dapat memberikan solusi untuk berbagai permasalahan sehari-hari. Sebagai mahasiswa, saya aktif dalam proyek-proyek teknologi dan terus mengembangkan keterampilan melalui pelatihan dan pengalaman praktis. Saya berkomitmen untuk memberikan kontribusi positif melalui penerapan teknologi IoT di masa depan.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="{{ url_for('static', filename='images/3.jpg') }}" alt="Assyfa Dwi Milany" class="team-member-img">
+                        <div class="team-member-info">
+                            <h5>3. Muhamammad Zakyul Fikri - Actor(soon)</h5>
+                            <p>Saya adalah seorang mahasiswa yang sangat tertarik dengan dunia perfilman dan bercita-cita menjadi aktor besar. Sejak kecil, saya sudah merasa tertarik dengan seni peran dan pembuatan film, serta berusaha terus mengasah keterampilan akting melalui pelatihan dan pengalaman di berbagai proyek. Saya percaya bahwa film memiliki kekuatan besar untuk menginspirasi dan memberikan dampak positif, dan dengan tekad serta kerja keras, saya yakin dapat mewujudkan impian saya untuk menjadi aktor besar di masa depan, Aamiin.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="{{ url_for('static', filename='images/4.jpg') }}" alt="Assyfa Dwi Milany" class="team-member-img">
+                        <div class="team-member-info">
+                            <h5>4. Bayu Arief Ramadhan - Boboiboy</h5>
+                            <p>Saya adalah seorang mahasiswa dengan kepribadian yang dinamis, yang mampu menjalani berbagai sisi kehidupan dengan keseimbangan. Di siang hari, saya fokus pada studi dan kegiatan akademik, namun di malam hari, saya meluangkan waktu untuk berolahraga dan meditasi. Olahraga menjadi cara saya menjaga kesehatan fisik, sementara meditasi membantu saya mereset pikiran dan mencapai kedamaian batin. Kedua kegiatan ini menjadi bagian penting dari rutinitas saya, yang membantu menciptakan keseimbangan antara kehidupan akademik dan kesehatan mental, serta memberikan energi untuk menghadapi tantangan sehari-hari.</p>
+                        </div>
+                    </div>
+                </div>      
+            </div>
+    <!-- Bootstrap JS and Icons -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+
+</body>
+</html>
+

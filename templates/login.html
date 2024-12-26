@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <h2>LOGIN</h2>
+  {% if error %}
+    <p class="error">{{ error }}</p>
+  {% endif %}
+  <form id="login-form" method="POST" action="{{ url_for('login') }}">
+    <label for="username_or_email">Username atau Email</label>
+    <input type="text" id="username_or_email" name="username_or_email" placeholder="Masukkan username atau email Anda" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Masukkan password Anda" required>
+
+    <button type="submit" class="login">LOGIN</button>
+    <a href="{{ url_for('registrasi') }}" class="registrasi">Registrasi</a>
+  </form>
+</div>
+
+</body>
+</html>

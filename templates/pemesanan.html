@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan PlayStation</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pemesanan.css') }}">
+</head>
+<body class="bg-dark text-light">
+    <header>
+        <div class="nav container">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <a href="#" class="logo">TriBhinneka <span> PS </span></a>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a href="{{ url_for('ps') }}">PS</a></li>
+                    <li class="nav-item"><a href="{{ url_for('pemesanan') }}"class="active">Rental</a></li>
+                    <li class="nav-item"><a href="{{ url_for('index') }}">Recommend</a></li>
+                    <li class="nav-item"><a href="{{ url_for('about') }}">About</a></li>
+                </ul>
+            </nav>
+            <a href="{{ url_for('logout') }}" class="btn login-btn">Logout</a>
+        </div>
+    </header>
+    <div class="container py-5">
+        <form action="/pemesanan" method="post" class="bg-white p-4 rounded shadow-lg">
+            <h2 class="text-center text-danger mb-4">Form Pemesanan PlayStation</h2>
+
+            <!-- Mengambil data PS dari database dan menampilkannya -->
+            <div class="ps-image row">
+                {% for ps in ps_data %}
+                <div class="col-12 col-md-4 ps-item">
+                    <label class="d-block text-center">
+                        <input type="radio" name="ps" value="{{ ps[0] }}" required>
+                        <img src="{{ url_for('static', filename='images/' ~ ps[4]) }}" alt="{{ ps[1] }}" class="img-fluid mb-3">
+                        <div class="ps-info font-weight-bold text-dark">{{ ps[1] }}</div>
+                        <div class="ps-price text-muted">Rp {{ ps[3] }}</div>
+                        <div class="ps-stock text-secondary">Stok: {{ ps[2] }}</div>
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Pilihan TV -->
+            <div class="tv-selection mb-4">
+                <label class="text-dark font-weight-bold">Pilih TV:</label>
+                <div class="row">
+                    {% for tv in tv_data %}
+                    <div class="col-12 col-md-4 ps-item">
+                        <label class="d-block text-center">
+                            <input type="radio" name="tv" value="{{ tv[0] }}">
+                            <img src="{{ url_for('static', filename='images/' ~ tv[4]) }}" alt="{{ tv[1] }}" class="img-fluid mb-3">
+                            <div class="ps-info font-weight-bold text-dark">{{ tv[1] }}</div>
+                            <div class="ps-price text-muted">Rp {{ tv[3] }}</div>
+                            <div class="ps-stock text-secondary">Stok: {{ tv[2] }}</div>
+                        </label>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="ps-item">
+                    <label>
+                        <input type="checkbox" name="no_tv" value="tidak">
+                        Tanpa TV
+                    </label>
+                </div>
+            </div>
+
+            <!-- Tanggal Pengambilan -->
+            <div class="form-group">
+                <label for="delivery">Tanggal Pengambilan</label>
+                <input type="date" id="delivery" name="delivery" class="form-control" required>
+            </div>
+
+            <!-- Tanggal Pengembalian -->
+            <div class="form-group">
+                <label for="return">Tanggal Pengembalian</label>
+                <input type="date" id="return" name="return" class="form-control" required>
+            </div>
+
+            <!-- Metode Pembayaran -->
+            <div class="form-group">
+                <label for="payment">Metode Pembayaran</label>
+                <select id="payment" name="payment" class="form-control" required>
+                    <option value="">Pilih metode pembayaran</option>
+                    <option value="transfer">Transfer Bank</option>
+                    <option value="cod">Cash on Delivery (COD)</option>
+                    <option value="ewallet">E-Wallet</option>
+                </select>
+            </div>
+
+            <!-- Tombol Submit -->
+            <button type="submit" class="btn btn-danger btn-block mt-3">Pesan Sekarang</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

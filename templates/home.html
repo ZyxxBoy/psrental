@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental PS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <div class="nav container">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <a href="#" class="logo">TriBhinneka <span> PS </span></a>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="{{ url_for('home') }}"class="active">Home</a></li>
+                    <li class="nav-item"><a href="{{ url_for('ps') }}">PS</a></li>
+                    <li class="nav-item"><a href="{{ url_for('pemesanan') }}">Rental</a></li>
+                    <li class="nav-item"><a href="{{ url_for('index') }}">Recommend</a></li>
+                    <li class="nav-item"><a href="{{ url_for('about') }}">About</a></li>
+                </ul>
+            </nav>
+            <a href="{{ url_for('logout') }}" class="btn login-btn">Logout</a>
+        </div>
+    </header>
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1>We Have Everything <br>Your <span>PS</span> Needs</h1>
+            <p>Selamat datang di TriBhinneka PS! <br> Kami menyediakan penyewaan PlayStation dengan berbagai konsol dan game <br> untuk pengalaman bermain yang tak terlupakan. Nikmati penyewaan mudah <br> dan layanan pelanggan yang luar biasa. Bersama PS RentHub, <br> kesenangan Anda adalah prioritas kami!</p>
+            <a href="{{ url_for('pemesanan') }}" class="btn">Rent Now</a>
+        </div>
+    </section>
+    <section class="PS" id="PS">
+        <div class="heading">
+            <span>All PS</span>
+            <h2>We have all types of PS</h2>
+            <p>Sewa berbagai jenis PlayStation dengan mudah di TriBhinneka PS.</p>
+        </div>
+        <div class="PS-container container">
+            <div class="box" onclick="addToCart('PS 2')">
+                <img src="/static/images/ps2.png" alt="PlayStation 2">
+                <h2>PS 2</h2>
+            </div>
+            <div class="box" onclick="addToCart('PS 3')">
+                <img src="/static/images/ps3.png" alt="PlayStation 3">
+                <h2>PS 3</h2>
+            </div>
+            <div class="box" onclick="addToCart('PS 4')">
+                <img src="/static/images/ps4.png" alt="PlayStation 4">
+                <h2>PS 4</h2>
+            </div>
+            <div class="box" onclick="addToCart('PS 5')">
+                <img src="/static/images/ps5.png" alt="PlayStation 5">
+                <h2>PS 5</h2>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about container" id="about">
+        <div class="about-img">
+            <img src="/static/images/about.jpeg" alt="">
+        </div>
+        <div class="about-text">
+            <span>About Us</span>
+            <h2>Cheap Prices With <br>Full Games</h2>
+            <p>Penyewaan PlayStation murah dengan koleksi game lengkap. <br> Nikmati bermain di TriBhinneka PS.</p>
+        </div>
+    </section>
+    
+    <script src="main.js"></script>
+</html>

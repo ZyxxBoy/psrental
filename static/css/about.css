@@ -1,0 +1,215 @@
+/* Root Variables */
+:root {
+    --main-color: #d90429;
+    --text-color: #020102;
+    --bg-color: #e8e7e7;
+}
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    padding-top: 80px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    display: block;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #060606;
+    padding: 20px 35px;
+    margin-bottom: 80px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+    display: none;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--bg-color);
+}
+
+.logo span {
+    color: var(--main-color);
+}
+
+.nav-list {
+    display: flex;
+    column-gap: 2rem;
+}
+
+.nav-list a {
+    color: var(--bg-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.nav-list a:hover, 
+.nav-list .active {
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+}
+
+.btn {
+    padding: 10px 22px;
+    background: var(--main-color);
+    color: var(--bg-color);
+    font-weight: 400;
+}
+
+.btn:hover {
+    background: #fd052f;
+}
+
+/* About Section */
+.about {
+    background-color: #fff;
+    padding: 40px 0;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.about h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.about .lead {
+    font-size: 1.125rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.about p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* Team Member Styles */
+.team-member {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.team-member-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.team-member-info {
+    max-width: 600px;
+}
+
+.team-member h5 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--main-color);
+    margin-bottom: 10px;
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+    .team-member {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .team-member-img {
+        margin-bottom: 15px;
+    }
+
+    .team-member-info {
+        max-width: 100%;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+    }
+
+    .about .lead, .about p {
+        font-size: 1rem;
+    }
+
+    .team-member h5 {
+        font-size: 1.1rem;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+}
+
+/* Purpose Section */
+.about .row.mt-5 {
+    margin-top: 50px;
+}
+
+.about .row.mt-5 .col-12 {
+    margin-top: 30px;
+}
+
+.about .row.mt-5 .col-12 h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about .row.mt-5 .col-12 p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+}

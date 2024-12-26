@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c; /* Hitam */
+            color: #ffffff; /* Putih */
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #ff4c4c; /* Merah */
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .action-buttons {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .action-buttons button {
+            background-color: #ff4c4c; /* Merah */
+            color: #ffffff; /* Putih */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .action-buttons button:hover {
+            background-color: #d43c3c; /* Merah lebih gelap */
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #2c2c2c; /* Hitam lebih terang */
+        }
+
+        table, th, td {
+            border: 1px solid #444; /* Garis abu-abu gelap */
+        }
+
+        th {
+            background-color: #ff4c4c; /* Merah */
+            color: #ffffff; /* Putih */
+            padding: 10px;
+        }
+
+        td {
+            padding: 8px;
+            color: #ffffff; /* Putih */
+        }
+
+        tr:nth-child(even) {
+            background-color: #333; /* Hitam lebih terang */
+        }
+
+        tr:nth-child(odd) {
+            background-color: #292929; /* Hitam gelap */
+        }
+
+        tr:hover {
+            background-color: #444; /* Abu-abu gelap */
+        }
+
+        img {
+            border-radius: 5px;
+        }
+
+        form {
+            display: inline;
+        }
+
+        button {
+            background-color: #ff4c4c; /* Merah */
+            color: #ffffff; /* Putih */
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        button:hover {
+            background-color: #d43c3c; /* Merah lebih gelap */
+        }
+
+        input[type="file"] {
+            color: #ffffff; /* Putih */
+        }
+
+        input[type="submit"] {
+            background-color: #ff4c4c; /* Merah */
+            color: #ffffff; /* Putih */
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #d43c3c; /* Merah lebih gelap */
+        }
+
+        a button {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Data Users</h2>
+
+    <!-- Tombol tambah user -->
+    <div class="action-buttons">
+        <a href="{{ url_for('add_user') }}"><button>Tambah User Baru</button></a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Actions</th> <!-- Kolom untuk tombol edit dan delete -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users_data %}
+            <tr>
+                <td>{{ user['id'] }}</td>
+                <td>{{ user['name'] }}</td>
+                <td>{{ user['email'] }}</td>
+                <td>{{ user['password'] }}</td>
+                <td>{{ user['phone'] }}</td>
+                <td>{{ user['address'] }}</td>
+                <td>
+                    <!-- Tombol edit user -->
+                    <a href="{{ url_for('edit_user', user_id=user['id']) }}"><button>Edit</button></a>
+                    
+                    <!-- Form untuk hapus user -->
+                    <form action="{{ url_for('delete_user', user_id=user['id']) }}" method="post" style="display: inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Admin Dashboard - Data Pemesanan</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>PS</th>
+                <th>TV</th>
+                <th>Delivery Date</th>
+                <th>Return Date</th>
+                <th>Payment Method</th>
+                <th>Total</th>
+                <th>Pembeli</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pesanan in pemesanan %}
+            <tr>
+                <td>{{ pesanan['id'] }}</td>
+                <td>{{ pesanan['ps_kode'] }}</td>
+                <td>{{ pesanan['tv'] }}</td>
+                <td>{{ pesanan['delivery_date'] }}</td>
+                <td>{{ pesanan['return_date'] }}</td>
+                <td>{{ pesanan['payment_method'] }}</td>
+                <td>Rp {{ pesanan['total_price'] }}</td>
+                <td>{{ pesanan['user_name'] }}</td>
+                <td>
+                    <!-- Tombol edit user -->
+                    <a href="{{ url_for('edit_pemesanan', pemesanan_id=pesanan['id']) }}"><button>Edit</button></a>
+                    
+                    <!-- Form untuk hapus user -->
+                    <form action="{{ url_for('delete_pemesanan', pemesanan_id=pesanan['id']) }}" method="post" style="display: inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Data PS</h2>
+    <!-- Tombol tambah user -->
+    <div class="action-buttons">
+        <a href="{{ url_for('add_ps') }}"><button>Tambah PS Baru</button></a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Kode PS</th>
+                <th>Nama</th>
+                <th>Stok</th>
+                <th>Harga Sewa</th>
+                <th>Foto</th>
+                <th>Upload Foto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ps in ps_data %}
+            <tr>
+                <td>{{ ps['kode_ps'] }}</td>
+                <td>{{ ps['nama'] }}</td>
+                <td>{{ ps['stok'] }}</td>
+                <td>Rp {{ ps['harga_sewa'] }}</td>
+                <td>
+                    {% if ps['foto'] %}
+                    <img src="{{ url_for('static', filename='images/' ~ ps['foto']) }}" alt="{{ ps['nama'] }}" width="100">
+                    {% else %}
+                    Tidak ada foto
+                    {% endif %}
+                </td>
+                <td>
+                    <form action="/upload_foto" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="kode_ps" value="{{ ps['kode_ps'] }}">
+                        <input type="file" name="foto" required>
+                        <input type="submit" value="Upload">
+                    </form>
+                </td>
+                <td>
+                    <!-- Tombol edit user -->
+                    <a href="{{ url_for('edit_ps', ps_kode=ps['kode_ps']) }}"><button>Edit</button></a>
+                    
+                    <!-- Form untuk hapus user -->
+                    <form action="{{ url_for('delete_ps',  ps_kode=ps['kode_ps']) }}" method="post" style="display: inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Data TV</h2>
+    <div class="action-buttons">
+        <a href="{{ url_for('add_tv') }}"><button>Tambah TV Baru</button></a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Kode TV</th>
+                <th>Nama</th>
+                <th>Stok</th>
+                <th>Harga Sewa</th>
+                <th>Gambar</th>
+                <th>Upload Gambar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tv in tv_data %}
+            <tr>
+                <td>{{ tv['kode_tv'] }}</td>
+                <td>{{ tv['nama'] }}</td>
+                <td>{{ tv['stok'] }}</td>
+                <td>Rp {{ tv['harga_sewa'] }}</td>
+                <td>
+                    {% if tv['gambar'] %}
+                    <img src="{{ url_for('static', filename='images/' ~ tv['gambar']) }}" alt="{{ tv['nama'] }}" width="100">
+                    {% else %}
+                    Tidak ada gambar
+                    {% endif %}
+                </td>
+                <td>
+                    <form action="/upload_gambar_tv" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="kode_tv" value="{{ tv['kode_tv'] }}">
+                        <input type="file" name="gambar" required>
+                        <input type="submit" value="Upload">
+                    </form>
+                </td>
+                <td>
+                    <!-- Tombol edit user -->
+                    <a href="{{ url_for('edit_tv', tv_kode=tv['kode_tv']) }}"><button>Edit</button></a>
+                    
+                    <!-- Form untuk hapus user -->
+                    <form action="{{ url_for('delete_tv',  tv_kode=tv['kode_tv']) }}" method="post" style="display: inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
