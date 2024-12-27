@@ -9,10 +9,11 @@ app.secret_key = 'your_secret_key_here'  # Ganti dengan secret key yang lebih am
 
 # Konfigurasi koneksi MySQL
 db_config = {
-    'user': 'root',         # Ganti dengan nama pengguna MySQL Anda
-    'password': '',         # Ganti dengan password MySQL Anda
-    'host': 'localhost',    # Ganti dengan host server MySQL Anda
-    'database': 'psrental'  # Ganti dengan nama database MySQL Anda
+    'user': 'psrental',         # Ganti dengan nama pengguna MySQL Anda
+    'password': 'Admin123',         # Ganti dengan password MySQL Anda
+    'host': 'psrental.mysql.database.azure.com',    # Ganti dengan host server MySQL Anda
+    'database': 'psrental',  # Ganti dengan nama database MySQL Anda
+    'port': 3306
 }
 
 UPLOAD_FOLDER = 'static/images'
